@@ -6,6 +6,8 @@ function App() {
   // App state
   const [ search, saveSearch ] = useState('');
   const [ images, saveImages ] = useState([]);
+  const [ actualpage, saveActualPage ] = useState(1);
+  const [ totalpages, saveTotalPages ] = useState(1);
 
   useEffect(() => {
     const consultAPI = async () => {
@@ -19,7 +21,11 @@ function App() {
       const result = await response.json();
 
       saveImages(result.hits);
-    }
+
+      // Calculate total pages
+      const calculateTotalPages = Math.ceil(result.totalHits / imagesPerPage);
+      saveTotalPages(calculateTotalPages);
+    }   
     consultAPI();
   }, [search]);
 
