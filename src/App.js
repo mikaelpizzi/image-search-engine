@@ -29,7 +29,23 @@ function App() {
     consultAPI();
   }, [search]);
 
+  // Define previous page
+  const previousPage = () => {
+    const newActualPage = actualpage - 1;
 
+    if (newActualPage === 0) return;
+
+    saveActualPage(newActualPage);
+  }
+
+  // Define next page
+  const nextPage = () => {
+    const newActualPage = actualpage + 1;
+
+    if (newActualPage === totalpages + 1) return;
+
+    saveActualPage(newActualPage);
+  }
 
   return (
     <div className="container">
@@ -45,6 +61,20 @@ function App() {
         <ImagesList 
           images={images}
         />
+
+        <button
+          type="button"
+          className="btn btn-info mr-1"
+          onClick={previousPage}
+        >&laquo; Previous
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-info"
+          onClick={nextPage}
+        >Next &raquo;
+        </button>
       </div>
     </div>
   );
