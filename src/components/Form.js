@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Error from "./Error";
+import PropTypes from 'prop-types';
 
 const Form = ({ saveSearch }) => {
 
@@ -46,4 +47,8 @@ const Form = ({ saveSearch }) => {
     );
 }
  
+Form.propTypes = {
+    saveSearch: PropTypes.func.isRequired
+}
+
 export default Form;

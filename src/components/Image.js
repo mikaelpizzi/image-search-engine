@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Image = ({ img }) => {
     // Extract values
     const { largeImageURL, likes, previewURL, tags, views } = img;
@@ -23,6 +25,10 @@ const Image = ({ img }) => {
             </div>
         </div>
     );
+}
+
+Image.propTypes = {
+    img: PropTypes.object.isRequired
 }
  
 export default Image;
