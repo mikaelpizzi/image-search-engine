@@ -13,7 +13,7 @@ function App() {
     const consultAPI = async () => {
       if (search === '') return;
 
-      const imagesPerPage = 30;
+      const imagesPerPage = 32;
       const key = '30220258-65d3d7dcad1629235985e1bb2';
       const url = `https://pixabay.com/api/?key=${key}&q=${search}&per_page=${imagesPerPage}&page=${actualpage}`;
   
